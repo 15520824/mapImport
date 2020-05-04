@@ -1,0 +1,300 @@
+<survey>
+    <id>46</id>
+    <value>Câu hỏi kiểm tra kiến thức BSC - KPI</value>
+    <document>
+        <title>
+            <id>246</id>
+            <value>Câu hỏi về BSC</value>
+            <style></style>
+            <type>text</type>
+            <description>
+                <content>
+                    <type>text</type>
+                    <style></style>
+                    <value></value>
+                </content>
+            </description>
+        </title>
+        <body>
+            <test>
+                <question>
+                    <id>791</id>
+                    <type>text</type>
+                    <style></style>
+                    <value>Trong các ví dụ dưới đây, ví dụ nào thể hiện mối quan hệ nhân quả giữa các viễn cảnh trong BSC</value>
+                    <important>0</important>
+                    <sum>1</sum>
+                    <content>
+                        <type>image</type>
+                        <style>
+                            <width>296px</width>
+                            <height>370px</height>
+                            <align>center</align>
+                        </style>
+                        <value>./img/upload/img_0894137131000742905756265209441687.jpg</value>
+                    </content>
+                </question>
+                <answer>
+                    <type>multichoice</type>
+                    <selection>
+                        <style></style>
+                        <value>Việc quản lý nhân viên tốt sẽ dẫn đến việc thực hiện quy trình tốt</value>
+                        <point>1</point>
+                        <content>
+                            <type>image</type>
+                            <style>
+                                <width>296px</width>
+                                <height>185px</height>
+                                <align>center</align>
+                            </style>
+                            <value>./img/upload/img_0928937690532529101315479802501771.jpg</value>
+                        </content>
+                        <id>3481</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>Kết quả tài chính tốt dẫn đến tỷ lệ nhân viên nghỉ việc thấp</value>
+                        <point>1</point>
+                        <id>3484</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>Kết quả của tài chính tốt nhờ sự hài lòng của khách hàng</value>
+                        <id>3482</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>Kết quả tài chính tốt nhờ chiến lược công ty tốt</value>
+                        <id>3483</id>
+                    </selection>
+                </answer>
+            </test>
+            <test>
+                <question>
+                    <id>792</id>
+                    <type>text</type>
+                    <style></style>
+                    <value>Công cụ BSC giúp công ty điều gì</value>
+                    <important>1</important>
+                    <sum>1</sum>
+                </question>
+                <answer>
+                    <type>checkbox</type>
+                    <selection>
+                        <style></style>
+                        <value>Lập kế hoạch cho công ty</value>
+                        <point>1</point>
+                        <id>3488</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>Nâng cao hiệu quả làm việc nhóm</value>
+                        <point>1</point>
+                        <id>3487</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>Chuyển tải tầm nhìn, chiến lược công ty xuống bộ phận và nhân viên bên dưới</value>
+                        <point>1</point>
+                        <id>3489</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>Quản lý hệ thống cải tiến liên tục hiệu quả</value>
+                        <id>3490</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>Công cụ đánh giá tổ chức</value>
+                        <point>1</point>
+                        <id>3486</id>
+                    </selection>
+                </answer>
+            </test>
+            <test>
+                <question>
+                    <id>793</id>
+                    <type>text</type>
+                    <style></style>
+                    <value>Ý nghĩa của bản đồ chiến lược là gì</value>
+                    <important>1</important>
+                    <sum>1</sum>
+                </question>
+                <answer>
+                    <type>multichoice</type>
+                    <selection>
+                        <style></style>
+                        <value>Xác định mối quan hệ nhân quả giữa các mục tiêu chiến lược</value>
+                        <id>3500</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>Xác định mối quan hệ nhân quả giữa quá khứ và tương lai</value>
+                        <point>1</point>
+                        <id>3502</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>Xác định tính hợp lý của trọng số</value>
+                        <id>3501</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>Xác định tính hợp lý của KPI</value>
+                        <id>3503</id>
+                    </selection>
+                </answer>
+            </test>
+            <test>
+                <question>
+                    <id>794</id>
+                    <type>text</type>
+                    <style></style>
+                    <value>Kết quả KPI là P nào trong lương 3P</value>
+                    <important>1</important>
+                    <sum>1</sum>
+                </question>
+                <answer>
+                    <type>multichoice</type>
+                    <selection>
+                        <style></style>
+                        <value>P1 (Vị trí - Position)</value>
+                        <id>3508</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>P2 (Năng lực - People )</value>
+                        <id>3509</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>P3 (Hiệu suất - Performance)</value>
+                        <id>3510</id>
+                    </selection>
+                </answer>
+            </test>
+            <test>
+                <question>
+                    <id>795</id>
+                    <type>text</type>
+                    <style></style>
+                    <value>Kết quả KPI là P nào trong lương 3P</value>
+                    <important>1</important>
+                    <sum>1</sum>
+                </question>
+                <answer>
+                    <type>multichoice</type>
+                    <selection>
+                        <style></style>
+                        <value>P1 (Vị trí - Position)</value>
+                        <id>3504</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>P2 (Năng lực - People )</value>
+                        <id>3505</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>P3 (Hiệu suất - Performance)</value>
+                        <id>3506</id>
+                    </selection>
+                </answer>
+            </test>
+            <test>
+                <question>
+                    <id>796</id>
+                    <type>text</type>
+                    <style></style>
+                    <value>Hạn chế của hệ thống KPI (không có BSC)</value>
+                    <important>1</important>
+                    <sum>1</sum>
+                </question>
+                <answer>
+                    <type>multichoice</type>
+                    <selection>
+                        <style></style>
+                        <value>Phần nhiều là thước đo tài chính</value>
+                        <id>3511</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>Phản ánh quá khứ, không dự đoán được tương lai</value>
+                        <id>3512</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>Phản ánh các chức năng riêng lẻ, mà không thể hiện quan hệ chéo trong tổ chức</value>
+                        <id>3514</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>Tất cả đều đúng</value>
+                        <id>3513</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>Tất cả đều sai</value>
+                        <point>1</point>
+                        <id>3515</id>
+                    </selection>
+                </answer>
+            </test>
+            <test>
+                <question>
+                    <id>797</id>
+                    <type>text</type>
+                    <style></style>
+                    <value>Tác dụng của ma trận chức năng</value>
+                    <important>1</important>
+                    <sum>1</sum>
+                </question>
+                <answer>
+                    <type>checkbox</type>
+                    <selection>
+                        <style></style>
+                        <value>Triển khai dự án BSC nhanh hơn</value>
+                        <point>1</point>
+                        <id>3517</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>Giảm thiểu việc bị sót chức năng cho công ty và các bộ phận</value>
+                        <point>1</point>
+                        <id>3518</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>Bổ sung việc đo lường các chức năng mà không liên quan trực tiếp đến chiến lược công ty</value>
+                        <point>1</point>
+                        <id>3519</id>
+                    </selection>
+                </answer>
+            </test>
+            <test>
+                <question>
+                    <id>798</id>
+                    <type>text</type>
+                    <style></style>
+                    <value>Cần thiết lập KPI cho tất cả các chức năng của bộ phận</value>
+                    <important>1</important>
+                    <sum>1</sum>
+                </question>
+                <answer>
+                    <type>multichoice</type>
+                    <selection>
+                        <style></style>
+                        <value>Đúng. Để đảm bảo đo lường toàn diện hoạt động của bộ phận</value>
+                        <id>3520</id>
+                    </selection>
+                    <selection>
+                        <style></style>
+                        <value>Sai. Chỉ cần cho các chức năng quan trọng và có liên quan đến chiến lược của công ty/ bộ phận</value>
+                        <point>1</point>
+                        <id>3521</id>
+                    </selection>
+                </answer>
+            </test>
+        </body>
+    </document>
+</survey>

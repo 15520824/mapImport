@@ -1,0 +1,178 @@
+.appsMaterialWizDialogPaperdialogContent {
+  -webkit-box-flex: 2;
+  box-flex: 2;
+  -webkit-flex-grow: 2;
+  flex-grow: 2;
+  -webkit-flex-shrink: 2;
+  flex-shrink: 2;
+  font-family: Roboto,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: .2px;
+  line-height: 20px;
+  display: block;
+  outline: none;
+  overflow-y: auto;
+  padding: 0 24px;
+}
+
+.freebirdFormeditorDialogFeedbackTabsFeedbackTabContent {
+  padding: 24px;
+}
+
+.modal-upload-XML-body-db-area-main-form .freebirdFormeditorDialogFeedbackTabsFeedbackTabContent {
+  padding: 24px 24px 0;
+}
+
+.appsMaterialWizTextinputTextareaEl {
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block;
+  outline: none;
+  width: 280px;
+}
+
+.freebirdFormeditorDialogFeedbackFeedbackText.freebirdFormeditorDialogFeedbackFeedbackText {
+  width: 100%;
+}
+
+.freebirdFormeditorDialogFeedbackFeedbackFeedbackMaterial {
+  margin: 10px 0 3px;
+}
+
+.modal-upload-XML-body-db-area-main-form .freebirdFormeditorDialogFeedbackFeedbackFeedbackMaterial {
+  margin: 0;
+  margin-top: 12px;
+}
+
+.appsMaterialWizTextinputTextareaMainContent {
+  min-height: 1.5em;
+  position: relative;
+  vertical-align: top;
+}
+
+.freebirdFormeditorDialogFeedbackDialog .exportDialogContent, .freebirdFormeditorDialogFeedbackDialog .exportContent, .m2 .freebirdFormeditorDialogFeedbackDialog .exportDialogContent {
+  padding: 0;
+}
+
+.appsMaterialWizTextinputTextareaFilled .appsMaterialWizTextinputTextareaMainContent {
+  background-color: #f8f9fa;
+  -webkit-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+}
+
+.appsMaterialWizTextinputTextareaOutlined.isFocused .appsMaterialWizTextinputTextareaMainContent, .appsMaterialWizTextinputTextareaOutlined.hasValue .appsMaterialWizTextinputTextareaMainContent, .appsMaterialWizTextinputTextareaOutlined.appsMaterialWizTextinputTextareaAlwaysFloatLabel .appsMaterialWizTextinputTextareaMainContent, .appsMaterialWizTextinputTextareaEl .appsMaterialWizTextinputTextareaMainContent, .appsMaterialWizTextinputTextareaFilled.isFocused.noLabel .appsMaterialWizTextinputTextareaMainContent, .appsMaterialWizTextinputTextareaFilled.hasValue.noLabel .appsMaterialWizTextinputTextareaMainContent {
+  padding-top: 16px;
+}
+
+.appsMaterialWizTextinputTextareaHint {
+  pointer-events: none;
+  color: #5f6368;
+}
+
+.freebirdThemedInput .appsMaterialWizTextinputTextareaHint{
+  color: rgb(103, 58, 183);
+}
+
+.appsMaterialWizTextinputTextareaPlaceholder {
+  font-family: Roboto,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: .1px;
+  line-height: 24px;
+  color: #9aa0a6;
+  left: 16px;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  right: 16px;
+  text-overflow: ellipsis;
+  top: 16px;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.appsMaterialWizTextinputTextareaContentArea {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  position: relative;
+}
+
+.appsMaterialWizTextinputTextareaUnderline {
+  background-color: #80868b;
+  bottom: 0;
+  height: 1px;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.appsMaterialWizTextinputTextareaFocusUnderline {
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  background-color: #2196f3;
+  bottom: 0;
+  height: 2px;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.freebirdThemedInput .appsMaterialWizTextinputTextareaFocusUnderline {
+  background-color: rgb(103, 58, 183);
+}
+
+.appsMaterialWizTextinputTextareaInput {
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 1;
+  flex-shrink: 1;
+  font-family: Roboto,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: .1px;
+  line-height: 24px;
+  background-color: transparent;
+  border: none;
+  caret-color: #2196f3;
+  display: block;
+  height: 24px;
+  min-height: 24px;
+  margin: 0;
+  outline: none;
+  overflow-y: visible;
+  overflow-x: hidden;
+  padding: 16px;
+  resize: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  z-index: 1;
+}
+
+.appsMaterialWizTextinputTextareaEl.isFocused .appsMaterialWizTextinputTextareaInput, .appsMaterialWizTextinputTextareaEl.hasValue.noLabel .appsMaterialWizTextinputTextareaInput, .appsMaterialWizTextinputTextareaEl.hasPlaceholder.noLabel .appsMaterialWizTextinputTextareaInput, .appsMaterialWizTextinputTextareaFilled:not(.noLabel).isFocused .appsMaterialWizTextinputTextareaInput, .appsMaterialWizTextinputTextareaOutlined:not(.noLabel).isFocused .appsMaterialWizTextinputTextareaInput, .appsMaterialWizTextinputTextareaFilled:not(.noLabel).hasValue .appsMaterialWizTextinputTextareaInput, .appsMaterialWizTextinputTextareaOutlined:not(.noLabel).hasValue .appsMaterialWizTextinputTextareaInput, .appsMaterialWizTextinputTextareaFilled:not(.noLabel).appsMaterialWizTextinputTextareaAlwaysFloatLabel .appsMaterialWizTextinputTextareaInput, .appsMaterialWizTextinputTextareaOutlined:not(.noLabel).appsMaterialWizTextinputTextareaAlwaysFloatLabel .appsMaterialWizTextinputTextareaInput {
+  padding-top: 0;
+}
+
+.appsMaterialWizTextinputTextareaEl.hasValue>.appsMaterialWizTextinputTextareaMainContent>.appsMaterialWizTextinputTextareaPlaceholder {
+  display: none;
+}
+
+.appsMaterialWizTextinputTextareaEl.isFocused>.appsMaterialWizTextinputTextareaMainContent>.appsMaterialWizTextinputTextareaFocusUnderline {
+  -webkit-animation: agmTextInputAddUnderline .3s cubic-bezier(0.4,0,0.2,1);
+  animation: agmTextInputAddUnderline .3s cubic-bezier(0.4,0,0.2,1);
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.modal-no-size{
+  height: 100%;
+  min-height: unset;
+  overflow-y: auto;
+}

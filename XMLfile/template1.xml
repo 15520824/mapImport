@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+    <title>
+        <style></style>
+        <type>text</type>
+        <value>Khảo sát về vấn đề học tập.</value>
+        <description>
+            <content>
+                <type>text</type>
+                <style></style>
+                <value>Biểu mẫu này nhằm mục đích khảo sát để nhóm có thêm thông tin làm đồ án môn học lớp KNNN SS004.H25, giáo viên giảng dạy : Vũ Trí Dũng.
+Các thành viên trong nhóm:
+16520386 - Hà Văn Hiếu
+16520007 - Lê Minh Khánh Ân
+15520757 - Nguyễn Huỳnh Thanh Tâm
+15520824 - Bùi Phạm Minh Thi
+16521845 - Vũ Văn Tuân
+16520681 - Hoàng Thắng Lợi
+16520851 - Phan Trung Nguyên
+15520538 - Dương Thanh Nghĩa</value>
+            </content>
+        </description>
+        <require>
+            <gmail></gmail>
+            <location></location>
+            <history></history>
+        </require>
+    </title>
+    <body>
+        <test>
+            <question>
+                <type>text</type>
+                <style></style>
+                <value>Tại sao cần phải sử dụng viễn cảnh</value>
+                <important>0</important>
+            </question>
+            <answer>
+                <type>shortanswer</type>
+                <selection>
+                    <style></style>
+                    <placeholder>Câu trả lời của bạn</placeholder>
+                    <value></value>
+                </selection>
+            </answer>
+        </test>
+        <test>
+            <question>
+                <type>text</type>
+                <style></style>
+                <value>Công cụ BSC giúp công ty điều gì</value>
+                <important>1</important>
+            </question>
+            <answer>
+                <type>checkbox</type>
+                <style></style>
+                <selection>
+                    <style></style>
+                    <value>Nâng cao hiệu quả làm việc nhóm</value>
+                    <point>1</point>
+                </selection>
+                <selection>
+                    <style></style>
+                    <value>Chuyển tải tầm nhìn, chiến lược công ty xuống bộ phận và nhân viên bên dưới</value>
+                </selection>
+                <selection>
+                    <style></style>
+                    <value>Quản lý hệ thống cải tiến liên tục hiệu quả</value>
+                </selection>
+                <selection>
+                    <style></style>
+                    <value>Lập kế hoạch cho công ty</value>
+                    <point>1</point>
+                </selection>
+                <selection>
+                    <style></style>
+                    <value>Mục khác</value>
+                    <content>
+                        <type>input</type>
+                        <style></style>
+                        <placeholder>Nhập mục khác</placeholder>
+                        <value></value>
+                    </content>
+                </selection>
+            </answer>
+        </test>
+        <test>
+            <question>
+                <type>text</type>
+                <style></style>
+                <value>Yếu tố nào là chủ chốt quyết định sự thành công của chiến lược</value>
+                <important>1</important>
+            </question>
+            <answer>
+                <type>multichoice</type>
+                <style></style>
+                <selection>
+                    <style></style>
+                    <value>Khả năng thực thi chiến lược quyết dịnh sự thành công của chiến lược</value>
+                    <point>1</point>
+                </selection>
+                <selection>
+                    <style></style>
+                    <value>Chiến lược kém là nguyên nhân chủ yếu quyết định sự thành công của chiến lược</value>
+                </selection>
+                <selection>
+                    <style></style>
+                    <value>Mục khác</value>
+                    <content>
+                        <type>input</type>
+                        <style></style>
+                        <placeholder>Nhập mục khác</placeholder>
+                        <value></value>
+                    </content>
+                </selection>
+            </answer>
+        </test>
+        <test>
+            <question>
+                <type>text</type>
+                <style></style>
+                <value>Tại sao cần phải sử dụng viễn cảnh</value>
+                <important>0</important>
+            </question>
+            <answer>
+                <type>longanswer</type>
+                <selection>
+                    <style></style>
+                    <placeholder>Câu trả lời của bạn</placeholder>
+                    <value></value>
+                </selection>
+            </answer>
+        </test>
+        <test>
+            <question>
+                <type>text</type>
+                <style></style>
+                <value>Yếu tố nào là chủ chốt quyết định sự thành công của chiến lược</value>
+                <sum>1</sum>
+                <important>1</important>
+            </question>
+            <answer>
+                <type>multichoice</type>
+                <style></style>
+                <selection>
+                    <style></style>
+                    <value>Khả năng thực thi chiến lược quyết dịnh sự thành công của chiến lược</value>
+                    <point>1</point>
+                </selection>
+                <selection>
+                    <style></style>
+                    <value>Chiến lược kém là nguyên nhân chủ yếu quyết định sự thành công của chiến lược</value>
+                </selection>
+                <selection>
+                    <style></style>
+                    <value>Mục khác</value>
+                    <content>
+                        <type>input</type>
+                        <style></style>
+                        <placeholder>Nhập mục khác</placeholder>
+                        <value></value>
+                    </content>
+                </selection>
+            </answer>
+        </test>
+    </body>
+</document>
