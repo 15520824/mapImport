@@ -58,9 +58,8 @@ PlanningInformation.prototype.setUpDxfFileLine = function(fileText, loadding) {
     var wkt = GeoJSON.parse(dxf);
     var center = new google.maps.LatLng(GeoJSON.header.$LATITUDE, GeoJSON.header.$LONGITUDE);
     var lines = window.dcel.extractOnlyLines();
-    lines = consoleWKTLine(lines);
     if (lines !== -1)
-        this.addLine(lines, "#000000");
+        this.addLineNoEdit(lines, "#000000");
     this.mapView.map.setCenter(center);
     this.mapView.map.setZoom(17);
     this.mapView.map.data.setStyle({
@@ -137,6 +136,10 @@ PlanningInformation.prototype.getView = function() {
     var hiddenInput = _({
         tag: "input",
         class: "hiddenUI",
+        attr: {
+            type: "file",
+            accept: ".dxf"
+        },
         on: {
             change: function(event) {
                 if (this.files.length == 0)
@@ -152,7 +155,9 @@ PlanningInformation.prototype.getView = function() {
                     if (extension === "dxf") {
                         if (true) {
                             var loadding = new loaddingWheel();
-                            self.setUpDxfFile(fileText, loadding)
+                            setTimeout(function() {
+                                self.setUpDxfFile(fileText, loadding)
+                            }, 60)
                         } else {
                             var loadding = new loaddingWheel();
                             setTimeout(function() {
@@ -171,6 +176,10 @@ PlanningInformation.prototype.getView = function() {
     var hiddenInput1 = _({
         tag: "input",
         class: "hiddenUI",
+        attr: {
+            type: "file",
+            accept: ".dxf"
+        },
         on: {
             change: function(event) {
                 if (this.files.length == 0)
@@ -186,11 +195,13 @@ PlanningInformation.prototype.getView = function() {
                     if (extension === "dxf") {
                         if (true) {
                             var loadding = new loaddingWheel();
-                            self.setUpDxfFileLine(fileText, loadding)
+                            setTimeout(function() {
+                                self.setUpDxfFileLine(fileText, loadding)
+                            }, 60)
                         } else {
                             var loadding = new loaddingWheel();
                             setTimeout(function() {
-                                self.setUpDxfFile(fileText, loadding)
+                                self.setUpDxfFileLine(fileText, loadding)
                             }, 60)
                         }
                     }
@@ -700,7 +711,6 @@ PlanningInformation.prototype.selectPolygonFunction = function(bns) {
     for (var i = 0; i < this.linesSelect.length; i++) {
         tempPath = [];
         var boundary = this.linesSelect[i].getBounds();
-        console.log(boundary)
         if (minX < boundary.min.lat && boundary.max.lat < maxX &&
             minY < boundary.min.lng && boundary.max.lng < maxY) {
             for (var j = 0; j < this.linesSelect[i].getPath().getLength(); j++) {
@@ -955,6 +965,25 @@ PlanningInformation.prototype.addLine = function(lines, color = "#FF0000") {
         var line = components[k];
         var polyline = new google.maps.Polyline({
             path: line,
+            geodesic: true,
+            strokeColor: color,
+            strokeOpacity: 1.0,
+            strokeWeight: 2,
+        })
+        polyline.setMap(this.mapView.map);
+        toReturn.push(polyline);
+    }
+    if (color !== "#FF0000")
+        this.linesSelect = toReturn;
+    return toReturn;
+}
+
+PlanningInformation.prototype.addLineNoEdit = function(lines, color = "#FF0000") {
+    var toReturn = [];
+    for (var i = 0; i < lines.length; i++) {
+        components = lines[i];
+        var polyline = new google.maps.Polyline({
+            path: components,
             geodesic: true,
             strokeColor: color,
             strokeOpacity: 1.0,

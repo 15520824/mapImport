@@ -694,64 +694,28 @@
                 this.lines = [];
             this.lines.push(line);
         },
+        stackLineOnly: function(line) {
+            if (this.linesOnly === undefined)
+                this.linesOnly = [];
+            this.linesOnly.push(line);
+        },
         extractLines: function() {
             this.setDatas(this.lines);
         },
         extractOnlyLines: function() {
-            var boundaryOrigin, maxX, minX, maxY, minY;
-            var lines = this.lines;
-            var v, v1
-                // Step 1: vertex list creation
+            var lines = this.linesOnly;
+            var result = [];
+            var tempResult;
+            // Step 1: vertex list creation
             for (var i = 0; i < lines.length; i++) {
-                lines[i].sort(function(a, b) {
-                    if (a[0] > b[0]) {
-                        return 1;
-                    }
-                    if (a[0] < b[0]) {
-                        return -1;
-                    }
-                    if (a[1] > b[1]) {
-                        return 1;
-                    }
-                    if (a[1] < b[1]) {
-                        return -1;
-                    }
-                    return 0;
-                });
-                v = this.check.checkAssitAndInsert(lines[i][0][0], lines[i][0][1]);
-
-                v1 = this.check.checkAssitAndInsert(lines[i][1][0], lines[i][1][1]);
-
-                var h1 = new Hedge(v, v1);
-                var h2 = new Hedge(v1, v);
-                h1.twin = h2;
-                h2.twin = h1;
-                v1.hedgelist.push(h1);
-                v.hedgelist.push(h2);
-                this.hedges.push(h2);
-                this.hedges.push(h1);
-                this.checkHedges[h1.id] = h1;
-                this.checkHedges[h2.id] = h2;
-                minX = v.x < v1.x ? v.x : v1.x;
-                minY = v.y < v1.y ? v.y : v1.y;
-                maxX = v.x > v1.x ? v.x : v1.x;
-                maxY = v.y > v1.y ? v.y : v1.y;
-
-                boundaryOrigin = {
-                    x: minX,
-                    y: minY,
-                    width: maxX - minX,
-                    height: maxY - minY
-                };
-                boundaryOrigin.object = {
-                    h1: h1,
-                    h2: h2,
-                    v: v,
-                    v1: v1
+                tempResult = [];
+                for (var j = 0; j < lines[i].length; j++) {
+                    tempResult.push({ lng: lines[i][j][0], lat: lines[i][j][1] })
                 }
+                result.push(tempResult);
             }
             // Step 3: Identification of next and prev hedges
-            return this.hedges;
+            return result;
         },
         checkArrayIS: function(x, arr) {
             for (var i = 0; i < arr.length; i++) {
@@ -874,7 +838,6 @@
                 }
             }
             // Step 4: Face assignment
-            console.log(hedges)
             var provlist = hedges.slice(0);
             var nh = hedges.length;
             var i = 0;
