@@ -172,8 +172,12 @@ function rotation_point(cx, cy, angle, x, y) {
             fls = true;
             console.log(centerLatLng);
         }
-        y -= GeoJSON.mapPoint.y;
-        x -= GeoJSON.mapPoint.x;
+        try {
+            y -= GeoJSON.mapPoint.y;
+            x -= GeoJSON.mapPoint.x;
+        } catch (error) {
+            alert("Vui lòng thêm điểm MapPoint vào file cad")
+        }
         // var newPos - 
         // var nY = x;
         // var nX = -y;

@@ -707,12 +707,16 @@
             var result = [];
             var tempResult;
             // Step 1: vertex list creation
-            for (var i = 0; i < lines.length; i++) {
-                tempResult = [];
-                for (var j = 0; j < lines[i].length; j++) {
-                    tempResult.push({ lng: lines[i][j][0], lat: lines[i][j][1] })
+            try {
+                for (var i = 0; i < lines.length; i++) {
+                    tempResult = [];
+                    for (var j = 0; j < lines[i].length; j++) {
+                        tempResult.push({ lng: lines[i][j][0], lat: lines[i][j][1] })
+                    }
+                    result.push(tempResult);
                 }
-                result.push(tempResult);
+            } catch (error) {
+                alert("Vui lòng kiểm tra tên layer")
             }
             // Step 3: Identification of next and prev hedges
             return result;
@@ -768,112 +772,117 @@
             var boundaryOrigin, maxX, minX, maxY, minY;
             var v, v1
                 // Step 1: vertex list creation
-            for (var i = 0; i < lines.length; i++) {
-                lines[i].sort(function(a, b) {
-                    if (a[0] > b[0]) {
-                        return 1;
-                    }
-                    if (a[0] < b[0]) {
-                        return -1;
-                    }
-                    if (a[1] > b[1]) {
-                        return 1;
-                    }
-                    if (a[1] < b[1]) {
-                        return -1;
-                    }
-                    return 0;
-                });
-                v = this.check.checkAssitAndInsert(lines[i][0][0], lines[i][0][1]);
+            try {
 
-                v1 = this.check.checkAssitAndInsert(lines[i][1][0], lines[i][1][1]);
-
-                var h1 = new Hedge(v, v1);
-                var h2 = new Hedge(v1, v);
-                h1.twin = h2;
-                h2.twin = h1;
-                v1.hedgelist.push(h1);
-                v.hedgelist.push(h2);
-                this.hedges.push(h2);
-                this.hedges.push(h1);
-                this.checkHedges[h1.id] = h1;
-                this.checkHedges[h2.id] = h2;
-                minX = v.x < v1.x ? v.x : v1.x;
-                minY = v.y < v1.y ? v.y : v1.y;
-                maxX = v.x > v1.x ? v.x : v1.x;
-                maxY = v.y > v1.y ? v.y : v1.y;
-
-                boundaryOrigin = {
-                    x: minX,
-                    y: minY,
-                    width: maxX - minX,
-                    height: maxY - minY
-                };
-                boundaryOrigin.object = {
-                    h1: h1,
-                    h2: h2,
-                    v: v,
-                    v1: v1
-                }
-                this.crossData(v, v1, h1, h2, boundaryOrigin)
-            }
-            // Step 3: Identification of next and prev hedges
-            var hedges = this.hedges;
-            var vertices = this.vertices;
-            for (var j = 0, ll = vertices.length; j < ll; j++) {
-                var v = vertices[j];
-                v.sortincident();
-                var l = v.hedgelist.length;
-                if (l == 0) continue; // skip vertex that has no edges
-                if (l < 2) {
-                    v.hedgelist[0].prevhedge = v.hedgelist[0].twin;
-                    v.hedgelist[0].twin.nexthedge = v.hedgelist[0];
-                } else {
-                    for (var i = 0; i < l - 1; i++) {
-                        v.hedgelist[i].twin.nexthedge = v.hedgelist[i + 1];
-                        v.hedgelist[i + 1].prevhedge = v.hedgelist[i].twin;
-                    }
-                    v.hedgelist[l - 1].twin.nexthedge = v.hedgelist[0];
-                    v.hedgelist[0].prevhedge = v.hedgelist[l - 1].twin;
-                }
-            }
-            // Step 4: Face assignment
-            var provlist = hedges.slice(0);
-            var nh = hedges.length;
-            var i = 0;
-            while (nh > 0) {
-                var h = provlist.pop();
-                nh -= 1;
-                i++;
-                // We check if the hedge already points to a face
-                if (h.face == null) {
-                    var f = new Face(this);
-                    // We link the hedge to the new face
-                    f.wedge = h;
-                    f.wedge.face = f;
-                    var arrTemp = [];
-                    // And we traverse the boundary of the new face
-                    arrTemp.push(h);
-                    while (h.nexthedge !== f.wedge) {
-                        try {
-                            arrTemp.push(h.nexthedge);
-                            h = h.nexthedge;
-                            h.face = f;
-                        } catch (err) {
-                            console.log(i, h, f)
+                for (var i = 0; i < lines.length; i++) {
+                    lines[i].sort(function(a, b) {
+                        if (a[0] > b[0]) {
+                            return 1;
                         }
-                    }
-                    if (f.internal == true) {
-                        for (var i = 0; i < arrTemp.length; i++) {
-                            delete this.checkHedges[arrTemp[i].id];
-                            delete this.checkHedges[arrTemp[i].twin.id];
+                        if (a[0] < b[0]) {
+                            return -1;
                         }
+                        if (a[1] > b[1]) {
+                            return 1;
+                        }
+                        if (a[1] < b[1]) {
+                            return -1;
+                        }
+                        return 0;
+                    });
+                    v = this.check.checkAssitAndInsert(lines[i][0][0], lines[i][0][1]);
+
+                    v1 = this.check.checkAssitAndInsert(lines[i][1][0], lines[i][1][1]);
+
+                    var h1 = new Hedge(v, v1);
+                    var h2 = new Hedge(v1, v);
+                    h1.twin = h2;
+                    h2.twin = h1;
+                    v1.hedgelist.push(h1);
+                    v.hedgelist.push(h2);
+                    this.hedges.push(h2);
+                    this.hedges.push(h1);
+                    this.checkHedges[h1.id] = h1;
+                    this.checkHedges[h2.id] = h2;
+                    minX = v.x < v1.x ? v.x : v1.x;
+                    minY = v.y < v1.y ? v.y : v1.y;
+                    maxX = v.x > v1.x ? v.x : v1.x;
+                    maxY = v.y > v1.y ? v.y : v1.y;
+
+                    boundaryOrigin = {
+                        x: minX,
+                        y: minY,
+                        width: maxX - minX,
+                        height: maxY - minY
+                    };
+                    boundaryOrigin.object = {
+                        h1: h1,
+                        h2: h2,
+                        v: v,
+                        v1: v1
                     }
-                    faces.push(f);
+                    this.crossData(v, v1, h1, h2, boundaryOrigin)
                 }
+                // Step 3: Identification of next and prev hedges
+                var hedges = this.hedges;
+                var vertices = this.vertices;
+                for (var j = 0, ll = vertices.length; j < ll; j++) {
+                    var v = vertices[j];
+                    v.sortincident();
+                    var l = v.hedgelist.length;
+                    if (l == 0) continue; // skip vertex that has no edges
+                    if (l < 2) {
+                        v.hedgelist[0].prevhedge = v.hedgelist[0].twin;
+                        v.hedgelist[0].twin.nexthedge = v.hedgelist[0];
+                    } else {
+                        for (var i = 0; i < l - 1; i++) {
+                            v.hedgelist[i].twin.nexthedge = v.hedgelist[i + 1];
+                            v.hedgelist[i + 1].prevhedge = v.hedgelist[i].twin;
+                        }
+                        v.hedgelist[l - 1].twin.nexthedge = v.hedgelist[0];
+                        v.hedgelist[0].prevhedge = v.hedgelist[l - 1].twin;
+                    }
+                }
+                // Step 4: Face assignment
+                var provlist = hedges.slice(0);
+                var nh = hedges.length;
+                var i = 0;
+                while (nh > 0) {
+                    var h = provlist.pop();
+                    nh -= 1;
+                    i++;
+                    // We check if the hedge already points to a face
+                    if (h.face == null) {
+                        var f = new Face(this);
+                        // We link the hedge to the new face
+                        f.wedge = h;
+                        f.wedge.face = f;
+                        var arrTemp = [];
+                        // And we traverse the boundary of the new face
+                        arrTemp.push(h);
+                        while (h.nexthedge !== f.wedge) {
+                            try {
+                                arrTemp.push(h.nexthedge);
+                                h = h.nexthedge;
+                                h.face = f;
+                            } catch (err) {
+                                console.log(i, h, f)
+                            }
+                        }
+                        if (f.internal == true) {
+                            for (var i = 0; i < arrTemp.length; i++) {
+                                delete this.checkHedges[arrTemp[i].id];
+                                delete this.checkHedges[arrTemp[i].twin.id];
+                            }
+                        }
+                        faces.push(f);
+                    }
+                }
+                console.log(hedges)
+                console.log(this.checkHedges)
+            } catch (error) {
+                alert("Vui lòng kiểm tra tên layer")
             }
-            console.log(hedges)
-            console.log(this.checkHedges)
         },
         parseCross: function(h1, h2, arrPointCross, arrCol) {
             var arrHedges = [],
