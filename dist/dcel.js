@@ -699,8 +699,16 @@
                 this.linesOnly = [];
             this.linesOnly.push(line);
         },
+        stackText: function(text) {
+            if (this.texts === undefined)
+                this.texts = [];
+            this.texts.push(text);
+        },
         extractLines: function() {
             this.setDatas(this.lines);
+        },
+        extractTexts: function() {
+            return this.texts;
         },
         extractOnlyLines: function() {
             var lines = this.linesOnly;
@@ -711,7 +719,7 @@
                 for (var i = 0; i < lines.length; i++) {
                     tempResult = [];
                     for (var j = 0; j < lines[i].length; j++) {
-                        tempResult.push({ lng: lines[i][j][0], lat: lines[i][j][1] })
+                        tempResult.push({ lng: lines[i][j][0], lat: lines[i][j][1]})
                     }
                     result.push(tempResult);
                 }

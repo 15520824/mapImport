@@ -21,7 +21,6 @@ PlanningInformation.prototype.setUpDxfFile = function(fileText, loadding) {
     }
 
     var wkt = GeoJSON.parse(dxf);
-    console.log(wkt);
     var center = new google.maps.LatLng(GeoJSON.header.$LATITUDE, GeoJSON.header.$LONGITUDE);
     window.dcel.extractLines();
     var faces = dcel.internalFaces();
@@ -67,6 +66,41 @@ PlanningInformation.prototype.setUpDxfFileLine = function(fileText, loadding) {
         strokeOpacity: 0.8,
         strokeWeight: 1,
     });
+    var texts = window.dcel.extractTexts();
+    for (var i = 0; i < texts.length; i++) {
+        var labelContent = _({
+            tag: "div",
+            child: [{
+                    tag: "div",
+                    class: "arrow",
+                },
+                {
+                    tag: "div",
+                    class: "inner",
+                    style: {
+                        fontSize: 3.7795275591 * texts[i].height + "px"
+                    },
+                    props: {
+                        innerHTML: texts[i]["text"]
+                    }
+                }
+            ]
+        })
+        labelContent.style.transform = "rotate(" + texts[i].rotation + "deg)";
+        new MarkerWithLabel({
+            position: new google.maps.LatLng(texts[i].coordinates[1], texts[i].coordinates[0]),
+            draggable: false,
+            map: this.mapView.map,
+            labelContent: labelContent, // can also be HTMLElement
+            labelAnchor: new google.maps.Point(0, 0),
+            labelClass: "labels", // the CSS class for the label
+            labelStyle: { opacity: 1.0 },
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 0
+            }
+        });
+    }
     console.timeEnd("dcel cost");
     loadding.disable();
 }

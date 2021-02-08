@@ -308,10 +308,21 @@ function rotation_point(cx, cy, angle, x, y) {
         }
     };
 
+    var getAngle = function(currX, currY, endX, endY) {
+        var angle = Math.atan2(currX - endX, currY - endY) * (180 / Math.PI);
+      
+        if (angle < 0) {
+          angle = Math.abs(angle);
+        } else {
+          angle = 360 - angle;
+        }
+      
+        return angle;
+      };
     // Helper functions
-    var geoms = { Point: ['POINT'], MultiPoint: [], LineString: ['LINE', 'LWPOLYLINE', 'SPLINE', 'POLYLINE'], MultiLineString: [], Polygon: [], MultiPolygon: [], GeoJSON: [] },
+    var geoms = { Point: ['POINT'], MultiPoint: [], LineString: ['LINE', 'LWPOLYLINE', 'SPLINE', 'POLYLINE'], MultiLineString: [], Polygon: [], MultiPolygon: [], GeoJSON: [], Text: ['TEXT'] },
         geomAttrs = [],
-        geoInput = { OLEFRAME: '', OLE2FRAME: '', ACAD_PROXY_ENTITY: '', POINT: '', ARC: '', POLYLINE: { vertices: ["x", "y"] }, ARCALIGNEDTEXT: '', RAY: '', ATTDEF: '', REGION: '', ATTRIB: '', RTEXT: '', BODY: '', SEQEND: '', CIRCLE: '', SHAPE: '', DIMENSION: '', SOLID: '', ELLIPSE: '', SPLINE: { controlPoints: ['x', 'y'] }, HATCH: '', TEXT: '', IMAGE: '', TOLERANCE: '', INSERT: "", TRACE: '', VERTEX: ['x', 'y'], LINE: { vertices: ['x', 'y'] }, VIEWPORT: '', LWPOLYLINE: { vertices: ['x', 'y'] }, WIPEOUT: '', MLINE: '', XLINE: '', MTEXT: '' };
+        geoInput = { OLEFRAME: '', OLE2FRAME: '', ACAD_PROXY_ENTITY: '', POINT: '', ARC: '', POLYLINE: { vertices: ["x", "y"] }, ARCALIGNEDTEXT: '', RAY: '', ATTDEF: '', REGION: '', ATTRIB: '', RTEXT: '', BODY: '', SEQEND: '', CIRCLE: '', SHAPE: '', DIMENSION: '', SOLID: '', ELLIPSE: '', SPLINE: { controlPoints: ['x', 'y'] }, HATCH: '', TEXT: {startPoint:['x','y']}, IMAGE: '', TOLERANCE: '', INSERT: "", TRACE: '', VERTEX: ['x', 'y'], LINE: { vertices: ['x', 'y'] }, VIEWPORT: '', LWPOLYLINE: { vertices: ['x', 'y'] }, WIPEOUT: '', MLINE: '', XLINE: '', MTEXT: '' };
     geoInput["3DSOLID"] = '';
     geoInput["3DFACE"] = '';
     // Adds default settings to user-specified params
@@ -425,6 +436,7 @@ function rotation_point(cx, cy, angle, x, y) {
             setGeom(settings);
             propFunc = getPropFunction(settings);
         }
+ 
         var feature = { "type": "Feature" };
         feature.geometry = buildGeom(item, settings);
         if (feature.geometry !== undefined) {
@@ -450,6 +462,9 @@ function rotation_point(cx, cy, angle, x, y) {
                             feature.geometry.coordinates.push(feature.geometry.coordinates[0]);
                         window.dcel.stackLineOnly(feature.geometry.coordinates);
                     }
+                    if (feature.geometry.type === "Text") {
+                        window.dcel.stackText(feature.geometry);
+                    }
                     break;
             }
         }
@@ -472,6 +487,13 @@ function rotation_point(cx, cy, angle, x, y) {
             var coordinates = [];
             var itemClone;
             var paths;
+            if(gtype == "Text")
+            {
+                if(item["endPoint"])
+                {
+                    item["rotation"] = getAngle(item["startPoint"].x,item["startPoint"].y,item["endPoint"].x,item["endPoint"].y)
+                }
+            }
             // If we've already found a matching geometry, stop the loop.
             if (geom !== undefined && geom !== false) {
                 break;
@@ -631,6 +653,18 @@ function rotation_point(cx, cy, angle, x, y) {
         }
         if (geom && item.layer)
             geom["layer"] = item.layer;
+        if(geom && geom.type == "Text")
+        {
+            if (item.color)
+            geom["color"] = item.color;
+            if (item.text)
+            geom["text"] = item.text;
+            if (item.textHeight)
+            geom["height"] = item.textHeight;
+            if (item.rotation)
+            geom["rotation"] = item.rotation;
+            // console.log(geom)
+        }
         return geom;
     }
 
